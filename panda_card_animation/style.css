@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background-color: #111;
+}
+.panda_card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    border-radius: 20px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.panda_card:hover{
+    width: 600px;
+    transition-delay: 0s;
+}
+.panda_card .panda_circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.panda_card .panda_circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr);
+    clip-path: circle(120px at center);
+    transition: 0.5s;
+}
+.panda_card:hover .panda_circle::before{
+    clip-path: circle(400px at center);
+}   
+.panda_card .panda_circle .p_logo{
+    position: relative;
+    width: 200px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.panda_card:hover .panda_circle .p_logo{
+ transform: scale(0);
+ transition-delay: 0s;
+}
+.panda_content{
+    position: relative;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}  
+.panda_card:hover .panda_content{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s
+}
+.panda_content h2{
+    color: #fff;
+    /* text-transform: uppercase; */
+    font-size: 2.5rem;
+    /* line-height: 1em; */
+}  
+.panda_content p{
+    color: #fff;
+}    
+.panda_content a{
+    position: relative;
+    color: #111;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+}
+/* .panda_content a:hover{
+    background: #fc1434;
+    color: #fff;
+} */
+.panda_card .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    height: 500px;
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+.panda_card:hover .product_img{
+    left: 72%;
+    transform: translate(-50%,-50%) scale(1);
+    transition-delay: 0.5s;
+}
+
+@media (max-width: 991px){
+    .panda_card{
+         width: auto;
+         max-width: 350px;
+         align-items: flex-start;
+        }
+        .panda_card:hover{
+             height: 600px;
+            }
+        .panda_card:hover .product_img{
+            top: initial;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%,0%) scale(1);
+            height: 300px;
+        }     
+        .panda_card .panda_content{
+             width: 100%;
+             left: 0;
+             padding: 40px;
+        }
+}
